@@ -68,7 +68,6 @@ Create your `config.json` based on the provided examples:
 ```json
 {
   "listen_addr": "127.0.0.1:1080",
-  "client_id": "my-laptop",
   "storage_type": "google",
   "google_folder_id": "YOUR_FOLDER_ID",
   "refresh_rate_ms": 100,
@@ -134,12 +133,12 @@ The project uses OAuth2 "3-legged" flow. You only need to do this once on your l
 6.  The program will create a `.token` file next to your `credentials.json`. Authorization is now complete.
 
 **فارسی:**
-۱. کلاینت را اجرا کنید: `./bin/client -c client_config.json -gc credentials.json`
-۲. یک لینک در ترمینال ظاهر می‌شود. آن را کپی کرده و در مرورگر خود باز کنید.
-۳. وارد اکانت گوگل خود شوید و دسترسی‌های لازم را تایید کنید.
-۴. شما به آدرسی که با `http://localhost` شروع می‌شود هدایت می‌شوید (اشکالی ندارد اگر صفحه باز نشود).
-۵. **کل آدرس URL** را از نوار آدرس مرورگر کپی کرده و در ترمینال پیست کنید.
-۶. برنامه یک فایل با پسوند `.token` در کنار `credentials.json` شما می‌سازد. احراز هویت تمام شد.
+1. کلاینت را اجرا کنید: `./bin/client -c client_config.json -gc credentials.json`
+2. یک لینک در ترمینال ظاهر می‌شود. آن را کپی کرده و در مرورگر خود باز کنید.
+3. وارد اکانت گوگل خود شوید و دسترسی‌های لازم را تایید کنید.
+4. شما به آدرسی که با `http://localhost` شروع می‌شود هدایت می‌شوید (اشکالی ندارد اگر صفحه باز نشود).
+5. **کل آدرس URL** را از نوار آدرس مرورگر کپی کرده و در ترمینال پیست کنید.
+6. برنامه یک فایل با پسوند `.token` در کنار `credentials.json` شما می‌سازد. احراز هویت تمام شد.
 
 ### 2. Deploying to Server / استقرار در سرور
 Once you have the `.token` file, you don't need to log in again.
@@ -153,17 +152,7 @@ To run the server on a remote upstream machine:
 
 **فارسی:**
 پس از دریافت فایل `.token` دیگر نیازی به لاگین مجدد نیست. برای اجرای سرور در یک ماشین دور (Upstream):
-۱. فایل `credentials.json` **و** فایل `.token` ساخته شده را به سرور منتقل کنید.
-۲. **خیلی مهم**: مطمئن شوید که در فایل `server_config.json` مقدار `google_folder_id` دقیقاً همان مقداری باشد که کلاینت به طور خودکار ساخته و در فایل کانفیگ شما ذخیره کرده است.
-۳. اجرا کنید: `./bin/server -c server_config.json -gc credentials.json`
-۴. سرور به صورت خودکار از توکن موجود استفاده کرده و بلافاصله شروع به کار می‌کند.
-
----
-
-## Advanced Features / ویژگی‌های پیشرفته
-
-- **Zero-Config**: Automatically creates Google Drive folders and saves settings to your config.
-- **Binary Protocol**: Low overhead and 33% faster than JSON-based systems.
-- **DPI Evasion**: Custom HTTP client settings for bypassing deep packet inspection.
-- **Tombstoning**: Prevents duplicate packet processing from Google Drive cache lag.
-- **Decoupled Rates**: Fast polling (100ms) for low latency and bundled flushing (300ms) to save API calls.
+1. فایل `credentials.json` **و** فایل `.token` ساخته شده را به سرور منتقل کنید.
+2. **خیلی مهم**: مطمئن شوید که در فایل `server_config.json` مقدار `google_folder_id` دقیقاً همان مقداری باشد که کلاینت به طور خودکار ساخته و در فایل کانفیگ شما ذخیره کرده است.
+3. اجرا کنید: `./bin/server -c server_config.json -gc credentials.json`
+4. سرور به صورت خودکار از توکن موجود استفاده کرده و بلافاصله شروع به کار می‌کند.
